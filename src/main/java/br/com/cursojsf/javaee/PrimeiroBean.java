@@ -15,4 +15,8 @@ public class PrimeiroBean {
 		this.nome = nome;
 	}
 
+	public void enviar(){
+		setNome(getNome().toUpperCase());
+	}
+
 }
