@@ -11,10 +11,11 @@
 <h:body>
 
 	<h:form>
-		<h:outputText value="Seu nome:" />
+		<h:outputText value="Seu nome:" binding="#{backingBean.texto}" />
 		<br />
-		<h:inputText />
-		<h:commandButton value="Testar" />
+		<h:inputText binding="#{backingBean.campo}" />
+		
+		<h:commandButton value="Mudar View" binding="#{backingBean.botao}" action="#{backingBean.testar}" />
 
 	</h:form>
 
