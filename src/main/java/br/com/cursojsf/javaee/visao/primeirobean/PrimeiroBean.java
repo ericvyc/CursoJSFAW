@@ -1,4 +1,4 @@
-package br.com.cursojsf.javaee.primeirobean;
+package br.com.cursojsf.javaee.visao.primeirobean;
 
 import javax.faces.bean.ManagedBean;
 

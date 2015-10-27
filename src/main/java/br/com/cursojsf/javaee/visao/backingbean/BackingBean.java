@@ -1,4 +1,4 @@
-package br.com.cursojsf.javaee.backingbean;
+package br.com.cursojsf.javaee.visao.backingbean;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
