@@ -36,4 +36,9 @@ public class Produto implements Serializable{
 		this.categoria = categoria;
 	}
 
+	@Override
+	public String toString() {
+		return "Produto [nome=" + nome + ", fabricante=" + fabricante + ", categoria=" + categoria + "]";
+	}
+
 }
