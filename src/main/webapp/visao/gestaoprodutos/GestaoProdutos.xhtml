@@ -6,12 +6,15 @@
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Hello Word</title>
+	<title>Gestão de Produtos</title>
 </h:head>
 
 <h:body>
 
 	<h:form>
+	
+	<h:commandLink value="Ajuda Sobre Esta Tela" action="#{gestaoProdutosBean.obterAjuda}"/>
+	<br /><br />
 		
 	Nome:
 	<h:inputText value="#{gestaoProdutosBean.produto.nome}" />

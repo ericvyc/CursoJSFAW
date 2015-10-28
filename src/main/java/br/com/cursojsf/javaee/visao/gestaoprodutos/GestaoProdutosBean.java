@@ -9,12 +9,12 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import br.com.cursojsf.javaee.dominio.Produto;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class GestaoProdutosBean implements Serializable{
 
 	private static final long serialVersionUID = -62854982190177074L;
@@ -24,6 +24,10 @@ public class GestaoProdutosBean implements Serializable{
 	private List<Produto> produtos;
 
 	private SimpleDateFormat sdf = new SimpleDateFormat();
+
+	public String obterAjuda(){
+		return produtos.isEmpty() ? "AjudaGestaoProdutos?faces-redirect=true" : "AjudaGestaoProdutosTelefone?faces-redirect=true" ;
+	}
 
 	@PostConstruct
 	public void inicializa(){
