@@ -11,6 +11,7 @@ import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.ValueChangeEvent;
 
 import br.com.cursojsf.javaee.dominio.Produto;
 
@@ -24,23 +25,44 @@ public class GestaoProdutosBean implements Serializable {
 
 	private List<Produto> produtos;
 
+	private List<Produto> produtosFiltrados;
+
 	private Produto produtoSelecionado;
+
+	private String fabricantePesquisa;
 
 	private SimpleDateFormat sdf = new SimpleDateFormat();
 
-	public void excluir(){
+	public void fabricantePesquisaAlterado(ValueChangeEvent event) {
+		System.out.println("Evento mudança de valor");
+		System.out.println("Valor Antigo: " + event.getOldValue());
+		System.out.println("Novo Valor: " + event.getNewValue());
+
+		getProdutosFiltrados().clear();
+
+		for(Produto produto : produtos){
+
+			if(produto.getFabricante().toUpperCase().startsWith(event.getNewValue().toString().toUpperCase())){
+				getProdutosFiltrados().add(produto);
+			}
+
+		}
+
+	}
+
+	public void excluir() {
 		getProdutos().remove(getProdutoSelecionado());
-		System.out.println("Produto "+ getProdutoSelecionado().toString() +" removido com sucesso!");
+		System.out.println("Produto " + getProdutoSelecionado().toString() + " removido com sucesso!");
 	}
 
 	public void verificarInclusao(ActionEvent event) {
-		if(getProduto().getFabricante().equals("")){
+		if (getProduto().getFabricante().equals("")) {
 			getProduto().setFabricante("Sem fabricante");
 		}
-		if(getProduto().getCategoria().equals("")){
+		if (getProduto().getCategoria().equals("")) {
 			getProduto().setCategoria("Sem categoria");
 		}
-		if(getProduto().getNome().equals("")){
+		if (getProduto().getNome().equals("")) {
 			getProduto().setNome("Sem nome");
 		}
 	}
@@ -69,6 +91,7 @@ public class GestaoProdutosBean implements Serializable {
 
 	public GestaoProdutosBean() {
 		setProdutos(new ArrayList<Produto>());
+		setProdutosFiltrados(new ArrayList<Produto>());
 		setProduto(new Produto());
 	}
 
@@ -94,6 +117,22 @@ public class GestaoProdutosBean implements Serializable {
 
 	public void setProdutoSelecionado(Produto produtoSelecionado) {
 		this.produtoSelecionado = produtoSelecionado;
+	}
+
+	public String getFabricantePesquisa() {
+		return fabricantePesquisa;
+	}
+
+	public void setFabricantePesquisa(String fabricantePesquisa) {
+		this.fabricantePesquisa = fabricantePesquisa;
+	}
+
+	public List<Produto> getProdutosFiltrados() {
+		return produtosFiltrados;
+	}
+
+	public void setProdutosFiltrados(List<Produto> produtosFiltrados) {
+		this.produtosFiltrados = produtosFiltrados;
 	}
 
 }
