@@ -1,5 +1,7 @@
 package br.com.cursojsf.javaee.visao.backingbean;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.component.html.HtmlCommandButton;
@@ -8,7 +10,9 @@ import javax.faces.component.html.HtmlOutputText;
 
 @ManagedBean
 @RequestScoped
-public class BackingBean {
+public class BackingBean implements Serializable{
+
+	private static final long serialVersionUID = -665930113845748680L;
 
 	private HtmlOutputText texto;
 

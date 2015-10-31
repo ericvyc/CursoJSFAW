@@ -22,7 +22,7 @@
 	</servlet-mapping>
 
 	<welcome-file-list>
-		<welcome-file>visao/testeform/TesteForm.xhtml</welcome-file>
+		<welcome-file>visao/cadastrocurriculo/CadastroCurriculo.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<filter>
