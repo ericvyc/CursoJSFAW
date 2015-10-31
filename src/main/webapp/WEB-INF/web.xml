@@ -22,7 +22,7 @@
 	</servlet-mapping>
 
 	<welcome-file-list>
-		<welcome-file>visao/timefavorito/TimesFavoritos.xhtml</welcome-file>
+		<welcome-file>visao/perfilusuario/PerfilUsuario.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<filter>
